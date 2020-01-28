@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<?import java.lang.String?>
+<GridPane alignment="center" hgap="10" style="-fx-background-color: #FFFFFF;" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WorkManager.Controller">
+    <padding><Insets bottom="5" left="5" right="5" top="5" /></padding>
+    <columnConstraints>
+      <ColumnConstraints prefWidth="400" maxWidth="400" minWidth="400" />
+      <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS"/>
+    </rowConstraints>
+    <GridPane GridPane.columnIndex="1">
+        <rowConstraints>
+            <RowConstraints vgrow="ALWAYS"/>
+            <RowConstraints prefHeight="400"/>
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        <TableView fx:id="tableView"  GridPane.rowIndex="0" >
+            <columns>
+                <TableColumn prefWidth="${tableView.width*0.1}" text="Typ">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="type" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.1}" text="Data">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="date" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.1}" text="Od">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="startTime" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.1}" text="Do">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="endTime" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.1}" text="Projekt">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="project" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.2}" text="Zadanie">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="task" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${tableView.width*0.2}" text="Komentarz">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="comment" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+        <TableView fx:id="summaryView" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn prefWidth="${summaryView.width*0.1}" text="Okres rozliczeniowy">
+                    <columns>
+                        <TableColumn prefWidth="${summaryView.width*0.1}" text="Od">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="From" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="${summaryView.width*0.1}" text="Do">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="To" />
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+                </TableColumn>
+                <TableColumn prefWidth="${summaryView.width*0.4}" text="Suma godzin">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="hours" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${summaryView.width*0.1}" text="Brutto">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="gross" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="${summaryView.width*0.1}" text="Netto">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="net" />
+                    </cellValueFactory>
+                </TableColumn>
+            </columns>
+        </TableView>
+    </GridPane>
+    <GridPane GridPane.columnIndex="0" GridPane.hgrow="ALWAYS">
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+        <GridPane>
+            <GridPane.margin>
+                <Insets bottom="20"/>
+            </GridPane.margin>
+            <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-font-size: 20; -fx-border-color: black; -fx-border-width: 0 0 2 0;" text="Godziny pracy" textAlignment="CENTER" GridPane.halignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="2.0" />
+                </GridPane.margin>
+            </Label>
+            <ComboBox fx:id="type" maxWidth="1.7976931348623157E308" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </ComboBox>
+            <DatePicker fx:id="date" maxWidth="1.7976931348623157E308" promptText="Data" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </DatePicker>
+            <TextField fx:id="from" promptText="Od" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </TextField>
+            <TextField fx:id="to" promptText="Do" GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="project" maxWidth="1.7976931348623157E308" promptText="Wybierz projekt" GridPane.rowIndex="5">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </ComboBox>
+            <TextField fx:id="task" promptText="Zadanie" GridPane.rowIndex="6">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </TextField>
+            <TextArea fx:id="desc" prefHeight="100" promptText="Komentarz (opcjonalne)" GridPane.rowIndex="7">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </TextArea>
+            <Button onAction="#AddWorkItem" fx:id="addWorkItemButton"
+                    disable="true"
+                    prefWidth="200" text="Dodaj" GridPane.halignment="CENTER" GridPane.rowIndex="8">
+                <GridPane.margin>
+                    <Insets bottom="5.0" top="5.0" left="5.0" right="5.0" />
+                </GridPane.margin>
+            </Button>
+        </GridPane>
+        <GridPane GridPane.rowIndex="1">
+            <GridPane.margin>
+                <Insets bottom="20"/>
+            </GridPane.margin>
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Nowy projekt" style="-fx-font-size: 20; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
+            <TextField fx:id="newProjectName" maxWidth="1.7976931348623157E308" promptText="Nazwa projektu" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="5" left="5" right="5" top="5" />
+                </GridPane.margin>
+            </TextField>
+            <Button onAction="#AddProject" fx:id="addNewProjectButton"
+                    disable="true"
+                    prefWidth="200" text="Dodaj" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin>
+            </Button>
+            <columnConstraints>
+                <ColumnConstraints />
+            </columnConstraints>
+        </GridPane>
+        <GridPane GridPane.rowIndex="2">
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+            <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="Nowy okres rozliczeniowy" style="-fx-font-size: 20; -fx-border-color: black; -fx-border-width: 0 0 2 0;" />
+            <DatePicker fx:id="billingPeriodFrom" maxWidth="1.7976931348623157E308" promptText="Od" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="5" left="5" right="5" top="5" />
+                </GridPane.margin>
+            </DatePicker>
+            <DatePicker fx:id="billingPeriodTo" maxWidth="1.7976931348623157E308" promptText="Do" GridPane.rowIndex="2">
+                <GridPane.margin>
+                    <Insets bottom="5" left="5" right="5" top="5" />
+                </GridPane.margin>
+            </DatePicker>
+            <Button onAction="#AddBilingPeriod" fx:id="addBillingPeriodButton"
+                    disable="true"
+                    prefWidth="200" text="Dodaj" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                </GridPane.margin></Button>
+            <columnConstraints>
+                <ColumnConstraints />
+            </columnConstraints>
+        </GridPane>
+    </GridPane>
+
+
+</GridPane>
